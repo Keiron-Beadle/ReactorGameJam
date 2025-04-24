@@ -1,0 +1,101 @@
+[gd_scene load_steps=8 format=3 uid="uid://t1dg14rsb3uo"]
+
+[ext_resource type="Script" uid="uid://cuwyrfh2jelkt" path="res://scripts/desktop.gd" id="1_dcrhm"]
+[ext_resource type="Texture2D" uid="uid://ci4o2j8otvsqh" path="res://assets/wallpaper.png" id="1_ox5hf"]
+[ext_resource type="PackedScene" uid="uid://b0tlev47unm1u" path="res://scenes/message.tscn" id="2_6ajoh"]
+[ext_resource type="Texture2D" uid="uid://b0nwg3kjf4q5i" path="res://assets/mail_normal.png" id="2_dcrhm"]
+[ext_resource type="FontFile" uid="uid://csxn3hfftru31" path="res://assets/Font.ttf" id="3_6ajoh"]
+[ext_resource type="Texture2D" uid="uid://tv3y50kd4sxx" path="res://assets/reactor_normal.png" id="4_veafp"]
+[ext_resource type="AudioStream" uid="uid://bwc8axk6qbon4" path="res://assets/windows_startup.ogg" id="8_pkmwo"]
+
+[node name="Desktop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dcrhm")
+mail_scene = ExtResource("2_6ajoh")
+
+[node name="LoadIconsTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_ox5hf")
+expand_mode = 2
+
+[node name="Email" type="Button" parent="."]
+offset_left = 19.0
+offset_top = 25.0
+offset_right = 96.0
+offset_bottom = 102.0
+icon = ExtResource("2_dcrhm")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="Email"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 79.0
+offset_right = 60.0
+offset_bottom = 102.0
+theme_override_colors/font_shadow_color = Color(0.427451, 0.427451, 0.427451, 1)
+theme_override_fonts/font = ExtResource("3_6ajoh")
+theme_override_font_sizes/font_size = 20
+text = "Mail"
+horizontal_alignment = 1
+
+[node name="UnreadLabel" type="Label" parent="Email"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 0.5
+offset_top = 0.5
+offset_right = 40.5
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.178005, 0.210656, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.0862745)
+theme_override_fonts/font = ExtResource("3_6ajoh")
+theme_override_font_sizes/font_size = 28
+text = "!"
+horizontal_alignment = 1
+
+[node name="Reactor" type="Button" parent="."]
+offset_left = 18.0
+offset_top = 141.0
+offset_right = 97.0
+offset_bottom = 219.0
+icon = ExtResource("4_veafp")
+expand_icon = true
+
+[node name="Label" type="Label" parent="Reactor"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 81.0
+offset_right = 71.0
+offset_bottom = 124.0
+theme_override_colors/font_shadow_color = Color(0.427493, 0.427493, 0.427493, 1)
+theme_override_fonts/font = ExtResource("3_6ajoh")
+theme_override_font_sizes/font_size = 20
+text = "Reactor
+Control"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_pkmwo")
+volume_db = -6.0
+autoplay = true

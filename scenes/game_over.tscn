@@ -1,0 +1,266 @@
+[gd_scene load_steps=5 format=3 uid="uid://c47ew8dmbats2"]
+
+[ext_resource type="Script" uid="uid://d08qhv4cqosxf" path="res://scripts/game_over.gd" id="1_wqhvx"]
+[ext_resource type="FontFile" uid="uid://csxn3hfftru31" path="res://assets/Font.ttf" id="1_xeevv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wqhvx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbwuq"]
+bg_color = Color(0.958888, 0.958888, 0.958888, 1)
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wqhvx")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 54.0
+offset_bottom = 104.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.661116, 0.899591, 0.693276, 1)
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 48
+text = "Fin"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 224.0
+offset_top = 116.0
+offset_right = -210.0
+offset_bottom = -400.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_xeevv")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "I Pressed the Wrong Button and now the [color=#63e667]REACTOR[/color] is in [color=#f5594e]CRITICAL[/color] condition!
+
+Please send [color=#67cee6]Help[/color]!"
+horizontal_alignment = 1
+
+[node name="By" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -84.0
+offset_right = 141.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_xeevv")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[color=#69b9ff]By[/color] Keiron Beadle"
+horizontal_alignment = 1
+
+[node name="StatsContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 31.0
+offset_right = 603.0
+offset_bottom = 360.0
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="StatsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.968891, 0.717193, 7.70092e-07, 1)
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 28
+text = "Stats"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="StatsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StatsContainer/Control"]
+layout_mode = 0
+offset_left = 94.0
+offset_right = 269.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 20
+text = "Total Power Generated"
+horizontal_alignment = 2
+
+[node name="TotalPower" type="Label" parent="StatsContainer/Control"]
+layout_mode = 0
+offset_left = 344.0
+offset_right = 463.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 20
+text = "34 MW"
+
+[node name="Control2" type="Control" parent="StatsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StatsContainer/Control2"]
+layout_mode = 0
+offset_left = 94.0
+offset_right = 269.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 20
+text = "Meltdown Warnings"
+horizontal_alignment = 2
+
+[node name="MeltdownWarnings" type="Label" parent="StatsContainer/Control2"]
+layout_mode = 0
+offset_left = 344.0
+offset_right = 463.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="SpecialThanks" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -301.5
+offset_top = -329.0
+offset_right = 301.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="SpecialThanks"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.968891, 0.717193, 7.70092e-07, 1)
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 28
+text = "Special Thanks"
+horizontal_alignment = 1
+
+[node name="Control3" type="Control" parent="SpecialThanks"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SpecialThanks/Control3"]
+layout_mode = 0
+offset_left = 43.0
+offset_right = 218.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 20
+text = "Joe"
+horizontal_alignment = 2
+
+[node name="MeltdownWarnings" type="Label" parent="SpecialThanks/Control3"]
+layout_mode = 0
+offset_left = 390.0
+offset_right = 603.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 20
+text = "Deutsch VO"
+
+[node name="Control2" type="Control" parent="SpecialThanks"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SpecialThanks/Control2"]
+layout_mode = 0
+offset_left = 43.0
+offset_right = 218.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 20
+text = "Louie"
+horizontal_alignment = 2
+
+[node name="MeltdownWarnings" type="Label" parent="SpecialThanks/Control2"]
+layout_mode = 0
+offset_left = 390.0
+offset_right = 603.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 20
+text = "Teaser Video VO"
+
+[node name="Control" type="Control" parent="SpecialThanks"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SpecialThanks/Control"]
+layout_mode = 0
+offset_left = 44.0
+offset_right = 219.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 20
+text = "Artistic Panda"
+horizontal_alignment = 2
+
+[node name="TotalPower" type="Label" parent="SpecialThanks/Control"]
+layout_mode = 0
+offset_left = 390.0
+offset_right = 556.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 20
+text = "Reactor Software VO"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -97.0
+offset_right = 4.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wqhvx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tbwuq")
+text = "[ QUIT ]"
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="FadeBackground1" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 110.0
+offset_bottom = -372.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0745098, 0.0745098, 0.0745098, 1)
+
+[node name="FadeBackground2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 382.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0745098, 0.0745098, 0.0745098, 1)

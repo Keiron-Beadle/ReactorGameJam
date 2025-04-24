@@ -1,0 +1,808 @@
+[gd_scene load_steps=22 format=3 uid="uid://c607nswwf516m"]
+
+[ext_resource type="Script" uid="uid://b1oulcr28m4cv" path="res://scripts/reactor.gd" id="1_1qd0l"]
+[ext_resource type="PackedScene" uid="uid://ttd0tnikl6y5" path="res://scenes/reactor_button.tscn" id="2_wfqw2"]
+[ext_resource type="FontFile" uid="uid://csxn3hfftru31" path="res://assets/Font.ttf" id="2_xogrw"]
+[ext_resource type="Texture2D" uid="uid://cvy82hbcimjli" path="res://assets/reactor_status_off.png" id="3_xogrw"]
+[ext_resource type="Texture2D" uid="uid://b1ijwbbaa01ja" path="res://assets/control_panel.png" id="4_n6bji"]
+[ext_resource type="PackedScene" uid="uid://cchjetovqlvso" path="res://scenes/reactor_overview.tscn" id="4_pmdsq"]
+[ext_resource type="Texture2D" uid="uid://ocs136bn85aq" path="res://assets/power_output.png" id="5_3aqxy"]
+[ext_resource type="Texture2D" uid="uid://bsyeaj36ulsc4" path="res://assets/shop.png" id="5_nj7vx"]
+[ext_resource type="Texture2D" uid="uid://7s68n2870cya" path="res://assets/overview_background.png" id="5_rver1"]
+[ext_resource type="Texture2D" uid="uid://c5pq4i73sgmun" path="res://assets/abort_button_normal.png" id="6_ti3ym"]
+[ext_resource type="Texture2D" uid="uid://b8qg60dodjds8" path="res://assets/abort_button_hover.png" id="7_7u6ee"]
+[ext_resource type="Texture2D" uid="uid://cg0q2dxtembu" path="res://assets/abort_button_disabled.png" id="8_kqsah"]
+[ext_resource type="Texture2D" uid="uid://fvuh3dl03i87" path="res://assets/win98_button_normal.png" id="9_nok4x"]
+[ext_resource type="PackedScene" uid="uid://dl6syd5q80fme" path="res://scenes/graph.tscn" id="9_tsc4k"]
+[ext_resource type="Texture2D" uid="uid://jd1nqlkvcudi" path="res://assets/demands.png" id="9_u82hr"]
+[ext_resource type="Texture2D" uid="uid://b1nhxfd0fergf" path="res://assets/win98_button_click.png" id="10_sj0v1"]
+[ext_resource type="Texture2D" uid="uid://c3wu0bf2fvqek" path="res://assets/win98_button_hover.png" id="11_4hg78"]
+[ext_resource type="PackedScene" uid="uid://kq6wwnj1sh3t" path="res://scenes/vertical_bar_chart.tscn" id="11_btm6j"]
+[ext_resource type="AudioStream" uid="uid://dgn1fiahflwhc" path="res://assets/reactor_imminent.ogg" id="11_tsc4k"]
+[ext_resource type="AudioStream" uid="uid://bdjgmb72il07g" path="res://assets/win11shutdown.wav" id="14_4pxku"]
+[ext_resource type="PackedScene" uid="uid://crffsnpnedwrn" path="res://scenes/tutorial_box.tscn" id="14_n6bji"]
+
+[node name="Reactor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -1.0
+offset_right = -5.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1qd0l")
+reactor_button_scene = ExtResource("2_wfqw2")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.004
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 1.0
+offset_right = -0.120117
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0823529, 0.345098, 0.254902, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+color = Color(0.125279, 0.245887, 0.574241, 1)
+
+[node name="Label" type="Label" parent="Background/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 20
+text = "Nuclear Management Inc"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Taskbar" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.004
+anchor_top = 1.0
+anchor_right = 1.004
+anchor_bottom = 1.001
+offset_left = -0.12
+offset_top = -28.0
+offset_right = -0.120117
+offset_bottom = 0.279968
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.800491, 0.800491, 0.800491, 1)
+
+[node name="ReactorButtons" type="BoxContainer" parent="Taskbar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 2.0
+offset_right = -482.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="ColorRect" type="ColorRect" parent="Taskbar"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -13.0
+offset_right = -2.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.435192, 0.435192, 0.435192, 1)
+
+[node name="Time" type="Label" parent="Taskbar/ColorRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -12.0
+offset_right = -9.0
+offset_bottom = 11.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 22
+text = "10:35"
+horizontal_alignment = 2
+
+[node name="ControlPanel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = -188.0
+offset_right = -17.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_n6bji")
+expand_mode = 2
+
+[node name="StatusContainer" type="HBoxContainer" parent="ControlPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 141.0
+offset_top = -25.5
+offset_right = 559.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="Reactor1Status" type="TextureRect" parent="ControlPanel/StatusContainer"]
+layout_mode = 2
+texture = ExtResource("3_xogrw")
+expand_mode = 2
+
+[node name="Reactor2Status" type="TextureRect" parent="ControlPanel/StatusContainer"]
+layout_mode = 2
+texture = ExtResource("3_xogrw")
+expand_mode = 2
+
+[node name="Reactor3Status" type="TextureRect" parent="ControlPanel/StatusContainer"]
+layout_mode = 2
+texture = ExtResource("3_xogrw")
+expand_mode = 2
+
+[node name="Reactor4Status" type="TextureRect" parent="ControlPanel/StatusContainer"]
+layout_mode = 2
+texture = ExtResource("3_xogrw")
+expand_mode = 2
+
+[node name="Reactor5Status" type="TextureRect" parent="ControlPanel/StatusContainer"]
+layout_mode = 2
+texture = ExtResource("3_xogrw")
+expand_mode = 2
+
+[node name="AbortButton" type="TextureButton" parent="ControlPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = -52.0
+offset_right = -33.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6_ti3ym")
+texture_hover = ExtResource("7_7u6ee")
+texture_disabled = ExtResource("8_kqsah")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ControlRodInsertion" type="Label" parent="ControlPanel"]
+layout_mode = 0
+offset_left = 237.0
+offset_top = 41.0
+offset_right = 277.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 28
+text = "50%"
+
+[node name="DecreaseControl" type="TextureButton" parent="ControlPanel"]
+layout_mode = 2
+offset_left = 19.0
+offset_top = 81.0
+offset_right = 150.0
+offset_bottom = 121.0
+size_flags_horizontal = 4
+texture_normal = ExtResource("9_nok4x")
+texture_pressed = ExtResource("10_sj0v1")
+texture_hover = ExtResource("11_4hg78")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="ControlPanel/DecreaseControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 24
+text = "-5%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IncreaseControl" type="TextureButton" parent="ControlPanel"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 81.0
+offset_right = 286.0
+offset_bottom = 121.0
+size_flags_horizontal = 4
+texture_normal = ExtResource("9_nok4x")
+texture_pressed = ExtResource("10_sj0v1")
+texture_hover = ExtResource("11_4hg78")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="ControlPanel/IncreaseControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 24
+text = "+5%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="ControlPanel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 3.0
+offset_right = 166.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 18
+text = "Reactor Control Panel"
+
+[node name="Label2" type="Label" parent="ControlPanel"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 40.0
+offset_right = 217.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 28
+text = "Control Rod (%)"
+
+[node name="ControlPanel_OLD" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 332.0
+offset_top = -308.0
+offset_right = 315.0
+offset_bottom = -173.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.341584, 0.341584, 0.341584, 1)
+
+[node name="Control" type="VBoxContainer" parent="ControlPanel_OLD"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 307.0
+offset_bottom = 129.0
+
+[node name="Label" type="Label" parent="ControlPanel_OLD/Control"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 32
+text = "Control Rod Insertion"
+horizontal_alignment = 1
+
+[node name="ControlRodText" type="Label" parent="ControlPanel_OLD/Control"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 22
+text = "50%"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ControlPanel_OLD/Control"]
+layout_mode = 2
+size_flags_vertical = 6
+alignment = 1
+
+[node name="DecreaseControl" type="Button" parent="ControlPanel_OLD/Control/HBoxContainer"]
+layout_mode = 2
+text = "<<<"
+expand_icon = true
+
+[node name="IncreaseControl" type="Button" parent="ControlPanel_OLD/Control/HBoxContainer"]
+layout_mode = 2
+text = ">>>"
+
+[node name="AbortButton" type="Button" parent="ControlPanel_OLD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.5
+offset_top = -35.5
+offset_right = 49.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 24
+text = "ABORT"
+
+[node name="Shop" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 34.0
+offset_right = 334.0
+offset_bottom = 322.0
+texture = ExtResource("5_nj7vx")
+expand_mode = 2
+
+[node name="BuyFuel" type="TextureButton" parent="Shop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -105.0
+offset_right = 137.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("9_nok4x")
+texture_pressed = ExtResource("10_sj0v1")
+texture_hover = ExtResource("11_4hg78")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Shop/BuyFuel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BuyCoolant" type="TextureButton" parent="Shop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -45.0
+offset_right = 137.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("9_nok4x")
+texture_pressed = ExtResource("10_sj0v1")
+texture_hover = ExtResource("11_4hg78")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Shop/BuyCoolant"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 20
+text = "Buy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Shop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -104.0
+offset_right = -84.0
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 24
+text = "Fuel"
+
+[node name="FuelPriceLabel" type="Label" parent="Shop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -101.0
+offset_right = 3.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 18
+text = "$94"
+
+[node name="Coolant" type="Label" parent="Shop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.5
+offset_top = -42.5
+offset_right = -68.5
+offset_bottom = -17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 24
+text = "Coolant"
+
+[node name="CoolantPriceLabel" type="Label" parent="Shop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -39.0
+offset_right = 2.5
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 18
+text = "$94"
+
+[node name="MoneyLabel" type="Label" parent="Shop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = 83.5
+offset_right = 108.0
+offset_bottom = 118.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 32
+text = "$1000.32"
+horizontal_alignment = 1
+
+[node name="PowerOutput" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -280.0
+offset_top = 36.0
+offset_right = 7.0
+offset_bottom = 310.0
+grow_horizontal = 2
+texture = ExtResource("5_3aqxy")
+expand_mode = 2
+
+[node name="TotalPowerGraph" parent="PowerOutput" instance=ExtResource("9_tsc4k")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.5
+offset_top = -106.0
+offset_right = 135.5
+offset_bottom = 19.0
+
+[node name="NumReactorsLabel" type="Label" parent="PowerOutput"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.5
+offset_top = 30.5
+offset_right = 6.5
+offset_bottom = 53.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 24
+text = "3 Reactors"
+
+[node name="TotalPowerLabel" type="Label" parent="PowerOutput"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.5
+offset_top = 56.5
+offset_right = 6.5
+offset_bottom = 81.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 18
+text = "4.5 MW/s"
+
+[node name="ReactorOverview" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -600.0
+offset_top = 36.0
+offset_right = -17.0
+offset_bottom = 457.0
+grow_horizontal = 0
+texture = ExtResource("5_rver1")
+expand_mode = 2
+
+[node name="Overview" parent="ReactorOverview" instance=ExtResource("4_pmdsq")]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.424
+offset_right = -0.192017
+
+[node name="TemperatureGraph" parent="ReactorOverview" instance=ExtResource("9_tsc4k")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+offset_left = -329.0
+offset_top = 49.0
+offset_right = -11.0
+offset_bottom = 116.0
+grow_horizontal = 0
+grow_vertical = 1
+
+[node name="PowerOutputGraph" parent="ReactorOverview" instance=ExtResource("9_tsc4k")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+offset_left = -329.0
+offset_top = 146.0
+offset_right = -11.0
+offset_bottom = 213.0
+grow_horizontal = 0
+grow_vertical = 1
+
+[node name="EntropyGraph" parent="ReactorOverview" instance=ExtResource("9_tsc4k")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+offset_left = -329.0
+offset_top = 243.0
+offset_right = -11.0
+offset_bottom = 310.0
+grow_horizontal = 0
+grow_vertical = 1
+
+[node name="Demands" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -29.0
+offset_right = 336.0
+offset_bottom = 157.0
+grow_vertical = 2
+texture = ExtResource("9_u82hr")
+expand_mode = 2
+
+[node name="PopulationDemand" parent="Demands" instance=ExtResource("11_btm6j")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -44.0
+offset_right = -18.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Demands/PopulationDemand"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = 5.0
+offset_right = 51.5
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 18
+text = "600000 people"
+horizontal_alignment = 1
+
+[node name="PowerDemand" parent="Demands" instance=ExtResource("11_btm6j")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 21.0
+offset_top = -44.0
+offset_right = 135.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Demands/PowerDemand"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = 5.0
+offset_right = 51.5
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xogrw")
+theme_override_font_sizes/font_size = 18
+text = "3.5 MW/s"
+horizontal_alignment = 1
+
+[node name="ReactorVoice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_tsc4k")
+volume_db = -3.0
+
+[node name="DayTimer" type="Timer" parent="."]
+wait_time = 15.0
+
+[node name="AppCloseTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="AppCloseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_4pxku")
+volume_db = -3.0
+
+[node name="Tutorial" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.004
+anchor_bottom = 1.002
+offset_right = -0.120117
+offset_bottom = -0.440063
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0901961, 0.0901961, 0.0901961, 0.556863)
+
+[node name="Tutorial1" parent="." instance=ExtResource("14_n6bji")]
+visible = false
+layout_mode = 1
+offset_left = -244.0
+offset_top = -111.0
+offset_right = 201.0
+offset_bottom = 129.0
+
+[node name="Tutorial2" parent="." instance=ExtResource("14_n6bji")]
+visible = false
+layout_mode = 1
+offset_left = -569.0
+offset_top = -116.0
+offset_right = -133.0
+offset_bottom = 125.0
+
+[node name="Tutorial3" parent="." instance=ExtResource("14_n6bji")]
+visible = false
+layout_mode = 1
+offset_left = -569.0
+offset_top = 61.0
+offset_right = -124.0
+offset_bottom = 278.0
+
+[node name="Tutorial4" parent="." instance=ExtResource("14_n6bji")]
+visible = false
+layout_mode = 1
+offset_left = -333.0
+offset_top = -82.0
+offset_right = 112.0
+offset_bottom = 135.0
+
+[node name="Tutorial5" parent="." instance=ExtResource("14_n6bji")]
+visible = false
+layout_mode = 1
+offset_left = 73.0
+offset_top = -34.0
+offset_right = 518.0
+offset_bottom = 183.0
+
+[node name="Tutorial6" parent="." instance=ExtResource("14_n6bji")]
+visible = false
+layout_mode = 1
+offset_left = -272.0
+offset_top = -64.0
+offset_right = 173.0
+offset_bottom = 153.0
+
+[node name="Tutorial7" parent="." instance=ExtResource("14_n6bji")]
+visible = false
+layout_mode = 1
+offset_left = 138.0
+offset_top = 74.0
+offset_right = 583.0
+offset_bottom = 291.0
+
+[node name="Tutorial8" parent="." instance=ExtResource("14_n6bji")]
+visible = false
+layout_mode = 1
+offset_left = -573.0
+offset_top = 68.0
+offset_right = -128.0
+offset_bottom = 285.0

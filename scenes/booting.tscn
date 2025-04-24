@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtaqdvklyo2kt"]
+
+[ext_resource type="Script" uid="uid://byay0r8pglpap" path="res://scripts/booting.gd" id="1_4ipxe"]
+[ext_resource type="FontFile" uid="uid://csxn3hfftru31" path="res://assets/Font.ttf" id="2_yisy8"]
+[ext_resource type="AudioStream" uid="uid://2u70jo7xe2mb" path="res://assets/hard_drive_read.ogg" id="4_7ynlm"]
+
+[node name="Booting" type="Node2D"]
+script = ExtResource("1_4ipxe")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="BootTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.5
+offset_top = -93.0
+offset_right = 135.5
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_yisy8")
+theme_override_font_sizes/font_size = 50
+text = "Booting"
+horizontal_alignment = 1
+
+[node name="FirstDot" type="Label" parent="."]
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -24.0
+offset_right = -36.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_yisy8")
+theme_override_font_sizes/font_size = 47
+text = "."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SecondDot" type="Label" parent="."]
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -24.0
+offset_right = 20.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_yisy8")
+theme_override_font_sizes/font_size = 47
+text = "."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThirdDot" type="Label" parent="."]
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -24.0
+offset_right = 72.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_yisy8")
+theme_override_font_sizes/font_size = 47
+text = "."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7ynlm")
+autoplay = true

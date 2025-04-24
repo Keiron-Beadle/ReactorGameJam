@@ -1,0 +1,224 @@
+[gd_scene load_steps=10 format=3 uid="uid://dunxj887bjhgr"]
+
+[ext_resource type="FontFile" uid="uid://csxn3hfftru31" path="res://assets/Font.ttf" id="1_c2u1v"]
+[ext_resource type="Script" uid="uid://ddxac78ss3try" path="res://scripts/options.gd" id="1_yjkok"]
+[ext_resource type="AudioStream" uid="uid://py2xwpatldjd" path="res://assets/button_click.mp3" id="3_2iy26"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c2u1v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjkok"]
+bg_color = Color(0.831761, 0.831761, 0.831761, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2iy26"]
+bg_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yjkok"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2u1v"]
+bg_color = Color(0.831373, 0.831373, 0.831373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kv8mn"]
+bg_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yjkok")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.0
+offset_top = -16.5
+offset_right = -60.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_c2u1v")
+theme_override_font_sizes/font_size = 32
+text = "Difficulty"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 67.0
+offset_top = -18.5
+offset_right = 168.0
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_c2u1v")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c2u1v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yjkok")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2iy26")
+text = "[ Normal ]"
+
+[node name="Control3" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.0
+offset_top = -16.5
+offset_right = -60.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_c2u1v")
+theme_override_font_sizes/font_size = 32
+text = "Day Length"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/Control3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 67.0
+offset_top = -18.5
+offset_right = 168.0
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_c2u1v")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c2u1v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yjkok")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2iy26")
+text = "[ 2 Min ]"
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.0
+offset_top = -16.5
+offset_right = -60.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_c2u1v")
+theme_override_font_sizes/font_size = 32
+text = "Language"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 67.0
+offset_top = -18.5
+offset_right = 168.0
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_c2u1v")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yjkok")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c2u1v")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kv8mn")
+text = "[ English ]"
+
+[node name="Control4" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Control4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.0
+offset_top = -16.5
+offset_right = -60.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_c2u1v")
+theme_override_font_sizes/font_size = 32
+text = "Email Dialogue"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/Control4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 67.0
+offset_top = -18.5
+offset_right = 168.0
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_c2u1v")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yjkok")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c2u1v")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kv8mn")
+text = "[ On ]"
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_c2u1v")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yjkok")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c2u1v")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kv8mn")
+text = "[ Back ]"
+
+[node name="ButtonClickAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2iy26")
+volume_db = -15.0

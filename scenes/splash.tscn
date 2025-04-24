@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn3ibx0mhe2g0"]
+
+[ext_resource type="Script" uid="uid://b8cxtcu7dckb5" path="res://scripts/splash.gd" id="1_10vqf"]
+[ext_resource type="PackedScene" uid="uid://cmhvj6hhu8lpl" path="res://scenes/menu.tscn" id="2_4rrho"]
+[ext_resource type="FontFile" uid="uid://csxn3hfftru31" path="res://assets/Font.ttf" id="3_4rrho"]
+
+[node name="Splash" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_10vqf")
+menu_scene = ExtResource("2_4rrho")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 95.0
+offset_top = 106.0
+offset_right = -86.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_4rrho")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "I Pressed the Wrong Button and now
+the [color=#63e667]REACTOR[/color] is in [color=#f5594e]CRITICAL[/color] condition!
+
+Please send [color=#67cee6]Help[/color]!"
